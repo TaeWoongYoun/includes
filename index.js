@@ -11,21 +11,23 @@ $('#send').on('click', function(e){
     var 비밀번호 = document.getElementById('password').value;
 
     if (아이디 == ''){
+        e.preventDefault();
         alert('아이디를 입력해주세요.');
-        e.preventDefault();
     } else if (비밀번호 == ''){
+        e.preventDefault();
         alert('비밀번호를 입력해주세요.');
+    } else if(비밀번호.length < 6){
         e.preventDefault();
-    } else if(document.getElementById('password').value.length < 6){
         alert('비밀번호를 6자 이상 입력해주세요');
+    } else if (/^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(아이디) == false ){
         e.preventDefault();
+        alert('이메일형식아님');
+    } else if ( /[A-Z]/.test(비밀번호) == false ){
+        e.preventDefault();
+        alert('대문자없는데요')
+    } else {
+        // e.preventDefault();
+        // alert('폼 제출을 막기');
     }
-
-    if(/\S+@\S+.\S+/.test(아이디)){
-        alert('이메일 형식이 아닙니다.')
-        e.preventDefault();
-    }else if(/[A-Z]/.test(비밀번호 == false)){
-        alert('비밀번호에 대문자를 추가해주세요.')
-        e.preventDefault();
-    }
+    
 });
