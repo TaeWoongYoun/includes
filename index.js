@@ -21,13 +21,9 @@ $('#send').on('click', function(e){
         alert('비밀번호를 6자 이상 입력해주세요');
     } else if (/^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(아이디) == false ){
         e.preventDefault();
-        alert('이메일형식아님');
+        alert('아이디가 이메일형식아님');
     } else if ( /[A-Z]/.test(비밀번호) == false ){
         e.preventDefault();
-        alert('대문자없는데요')
-    } else {
-        // e.preventDefault();
-        // alert('폼 제출을 막기');
+        alert('비밀번호에 대문자없는데요')
     }
-    
 });
